@@ -1,0 +1,73 @@
+<div class="card">
+  <h2>Calm Reset Tool</h2>
+
+  <label>Stress Level (1–10)</label>
+  <input type="range" id="stress" min="1" max="10" value="5">
+
+  <label>How do you feel?</label>
+  <select id="feeling">
+    <option>Anxious</option>
+    <option>Overwhelmed</option>
+    <option>Tired</option>
+    <option>Irritable</option>
+    <option>Foggy</option>
+  </select>
+
+  <label>Time Available</label>
+  <select id="time">
+    <option value="1">1 minute</option>
+    <option value="5">5 minutes</option>
+    <option value="15">15 minutes</option>
+  </select>
+
+  <label>Where are you?</label>
+  <select id="place">
+    <option>At home</option>
+    <option>At work</option>
+    <option>On the go</option>
+  </select>
+
+  <button onclick="generateCalm()">Get My Calm Plan</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+function generateCalm() {
+  let stress = document.getElementById("stress").value;
+  let feeling = document.getElementById("feeling").value;
+  let time = document.getElementById("time").value;
+
+  let plan = "";
+
+  if (stress >= 8 && feeling === "Anxious") {
+    plan = `
+    <h3>🌿 Your Calm Reset Plan</h3>
+    <p>🫁 Breathe: Inhale 4, hold 4, exhale 4 (repeat)</p>
+    <p>🧘 Move: Drop shoulders, press feet into floor</p>
+    <p>🍵 Drink: Sip cool water slowly</p>
+    <p>🌸 Environment: Close eyes, reduce noise</p>
+    `;
+  } 
+  else if (feeling === "Tired") {
+    plan = `
+    <h3>🌿 Your Calm Reset Plan</h3>
+    <p>🫁 Breathe: Deep inhale, long slow exhale</p>
+    <p>🧘 Move: Stretch arms overhead, gentle twist</p>
+    <p>🍵 Drink: Green tea or mint</p>
+    <p>🌸 Environment: Get light or fresh air</p>
+    `;
+  }
+  else {
+    plan = `
+    <h3>🌿 Your Calm Reset Plan</h3>
+    <p>🫁 Breathe: Slow, steady breathing</p>
+    <p>🧘 Move: Gentle body sway</p>
+    <p>🍵 Drink: Warm tea</p>
+    <p>🌸 Environment: Quiet space</p>
+    `;
+  }
+
+  document.getElementById("result").innerHTML = plan;
+}
+</script>
