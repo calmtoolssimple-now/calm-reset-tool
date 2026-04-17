@@ -261,6 +261,17 @@
       let food = "";
       let environment = "";
       let bonus = "";
+      if (feeling === "Anxious") {
+  products = `
+  <div class="bonus">
+    <strong>🌿 Optional Comfort Boosts</strong>
+    <ul>
+      <li>🌸 <a href="YOUR_AMAZON_LINK_1" target="_blank">Lavender Essential Oil</a></li>
+      <li>🍵 <a href="YOUR_AMAZON_LINK_2" target="_blank">Organic Mint Tea</a></li>
+    </ul>
+  </div>
+  `;
+}
 
       if (stress >= 8 && feeling === "Anxious") {
         breathe = "🫁 <strong>Breathe:</strong> Try box breathing. Inhale for 4, hold for 4, exhale for 4, hold for 4.";
@@ -319,6 +330,15 @@
         <div class="result-item">${food}</div>
         <div class="result-item">${environment}</div>
         <div class="bonus">${bonus}</div>
+        result.innerHTML = `
+  <h2>${title}</h2>
+  <div class="result-item">${breathe}</div>
+  <div class="result-item">${move}</div>
+  <div class="result-item">${food}</div>
+  <div class="result-item">${environment}</div>
+  <div class="bonus">${bonus}</div>
+  ${products}
+`;
       `;
 
       result.style.display = "block";
