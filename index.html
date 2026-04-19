@@ -61,16 +61,18 @@ button {
 
 .product-card {
   background: white;
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 12px;
+  padding: 12px;
   margin-top: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  border: 1px solid #ddd;
 }
 
-.product-card a {
-  color: #6e9385;
-  font-weight: bold;
-  text-decoration: none;
+.book-card {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid #6e9385;
 }
 </style>
 </head>
@@ -114,155 +116,64 @@ button {
 
 <div id="result" class="result"></div>
 
-<!-- EMAIL SECTION -->
-<div id="emailSection" style="display:none;">
-<input type="email" id="userEmail" placeholder="Enter your email to receive your plan 💚">
-<button onclick="sendEmail()">Send My Plan</button>
-<p style="font-size:12px;color:#777;">We’ll only send your calm plan. No spam.</p>
-</div>
-
 </div>
 </div>
 
 <script>
 
-(function(){
-emailjs.init("8-6yk8giaQBxBAjNz");
-})();
-
-let currentPlan = "";
-let currentMantra = "";
-
-function randomItem(arr){
-return arr[Math.floor(Math.random()*arr.length)];
-}
-
 function generateCalm(){
 
 let stress = parseInt(document.getElementById("stress").value);
 let feeling = document.getElementById("feeling").value;
-let time = document.getElementById("time").value;
 let place = document.getElementById("place").value;
 
 let plan = "";
-let mantraOptions = [];
+let mantra = "";
 
 if(feeling==="Anxious"){
-plan = `
-Step 1: Press your feet firmly into the ground.
-
-Step 2: Massage behind your ears in slow circles for 20 seconds.
-
-Step 3: Breathe in for 4, out for 6 (repeat 5 times).
-
-Step 4: Name 3 things you see and 2 things you feel.
-`;
-mantraOptions = ["I am safe right now.","This will pass.","I can breathe through this."];
+plan = "• Press your feet into the floor\n• Massage behind your ears for 20 seconds\n• Breathe in for 4, out for 6 (5 times)\n• Name 3 things you see";
+mantra = "I am safe right now.";
 }
-
 else if(feeling==="Overwhelmed"){
-plan = `
-Step 1: Stop and take 3 slow breaths.
-
-Step 2: Relax your shoulders and unclench your hands.
-
-Step 3: Focus on just ONE small task.
-
-Step 4: Take a short pause before continuing.
-`;
-mantraOptions = ["One step at a time.","I can slow this down.","I don’t need to do everything."];
+plan = "• Take 3 slow breaths\n• Relax your shoulders\n• Focus on ONE task only\n• Pause before continuing";
+mantra = "One step at a time.";
 }
-
 else if(feeling==="Tired"){
-plan = `
-Step 1: Stretch your arms overhead.
-
-Step 2: Take a deep breath and open your chest.
-
-Step 3: Sip water or tea.
-
-Step 4: Sit upright and take in natural light.
-`;
-mantraOptions = ["I can restore gently.","Rest is okay.","I will move slowly."];
+plan = "• Stretch your arms overhead\n• Take a deep breath\n• Sip water or tea\n• Sit upright near light";
+mantra = "I can restore gently.";
 }
-
 else if(feeling==="Irritable"){
-plan = `
-Step 1: Pause before reacting.
-
-Step 2: Take a slow breath in and out.
-
-Step 3: Step away for a moment if possible.
-
-Step 4: Release tension from your shoulders.
-`;
-mantraOptions = ["I can pause.","I choose calm.","This feeling will pass."];
+plan = "• Pause before reacting\n• Take a slow breath\n• Step away briefly\n• Release shoulder tension";
+mantra = "I choose calm.";
 }
-
 else{
-plan = `
-Step 1: Sit up tall.
-
-Step 2: Take 5 slow breaths.
-
-Step 3: Stretch your body gently.
-
-Step 4: Focus on one small action.
-`;
-mantraOptions = ["Clarity will come.","One step helps.","I can reset."];
+plan = "• Sit up tall\n• Take 5 slow breaths\n• Stretch gently\n• Focus on one small action";
+mantra = "Clarity will come.";
 }
 
-let mantra = randomItem(mantraOptions);
+let products = `
+<h3>🌿 Recommended for you</h3>
 
-currentPlan = plan;
-currentMantra = mantra;
-
-// PRODUCTS
-let products = "<h3>🌿 Recommended for how you're feeling</h3>";
-
-if(stress>=7 || place==="At work"){
-products += `
 <div class="product-card">🌸 <a href="https://amzn.to/3QxpJmh" target="_blank">Aromatherapy Diffuser Necklace</a></div>
 <div class="product-card">💧 <a href="https://amzn.to/4vG0Kxj" target="_blank">Lavender Spray</a></div>
-`;
-}
-else{
-products += `
 <div class="product-card">💛 <a href="https://amzn.to/4e2CkI9" target="_blank">Touch Bracelets</a></div>
-<div class="product-card">💧 <a href="https://amzn.to/4vG0Kxj" target="_blank">Lavender Spray</a></div>
 `;
-}
 
-document.getElementById("result").innerHTML =
-document.getElementById("result").innerHTML =
-"<h2>Your Calm Reset Plan</h2><div style='white-space: pre-wrap;'>"+plan+"</div><p><strong>"+mantra+"</strong></p>"+products;
-
-`<div style="margin-top:20px; padding:15px; background:#ffffff; border-radius:12px; border:1px solid #ddd;">
+let book = `
+<div class="book-card">
 <h3>📘 Want to go deeper?</h3>
 <p>This gentle guide helps you reconnect with calm, movement, and emotional ease.</p>
-<a href="https://calmtools7.gumroad.com/l/calm-dance-guide" target="_blank" 
+<a href="https://calmtools7.gumroad.com/l/calm-dance-guide" target="_blank"
 style="display:inline-block; margin-top:10px; background:#6e9385; color:white; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:bold;">
 Explore the Calm Dance Guide
 </a>
-</div>`;
+</div>
+`;
+
+document.getElementById("result").innerHTML =
+"<h2>Your Calm Reset Plan</h2><div style='white-space:pre-wrap;'>"+plan+"</div><p><strong>"+mantra+"</strong></p>"+products+book;
 
 document.getElementById("result").style.display="block";
-document.getElementById("emailSection").style.display="block";
-
-}
-
-function sendEmail(){
-
-let email = document.getElementById("userEmail").value;
-
-emailjs.send("service_hfr86fp","template_80hmaqd",{
-to_name:"Friend",
-to_email:email,
-plan:currentPlan,
-mantra:currentMantra
-}).then(function(){
-alert("Your calm plan has been sent 💚");
-});
 
 }
 
