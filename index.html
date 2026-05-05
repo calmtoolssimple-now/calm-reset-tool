@@ -223,6 +223,11 @@
 </select>
 
 <button onclick="generateCalm()">Get My Calm Plan</button>
+function copyPlan() {
+  const text = document.getElementById("result").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Your calm plan has been copied! 💚");
+}  
 
 <div id="result" class="result"></div>
 <div id="emailSection" style="display:none;">
