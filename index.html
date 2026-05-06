@@ -250,7 +250,6 @@ function generateCalm() {
 
   document.getElementById("emailSection").style.display = "block";
 }
-
 function sendEmail() {
   const email = document.getElementById("userEmail").value.trim();
   const resultText = document.getElementById("result").innerText;
@@ -265,8 +264,23 @@ function sendEmail() {
     return;
   }
 
+  emailjs.init("8-6yk8giaQBxBAjNz");
+
+  emailjs.send("service_hfr86fp", "template_80hmaqd", {
+    user_email: email,
+    message: resultText
+  })
+  .then(function() {
+    alert("Your calm plan has been sent 💚");
+  })
+  .catch(function(error) {
+    console.log("EmailJS error:", error);
+    alert("There was a problem sending your email. Please try again.");
+  });
+}
   alert("Thank you! Your email was entered successfully. The email sending connection still needs EmailJS added.");
 }
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </script>
 
 </body>
