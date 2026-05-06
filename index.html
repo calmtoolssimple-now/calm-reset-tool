@@ -309,13 +309,12 @@
         return;
       }
 
-      emailjs.send("service_hfr86fp", "template_80hmaqd", {
-        to_name: "Friend",
-        plan: latestPlan,
-        mantra: latestMantra,
-        user_email: email,
-        reply_to: email
-      })
+  emailjs.send("service_hfr86fp", "template_80hmaqd", {
+  to_name: "Friend",
+  plan: latestPlan,
+  mantra: latestMantra,
+  email: email
+})
       .then(function() {
         alert("Your calm plan has been sent.");
       })
