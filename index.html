@@ -316,8 +316,34 @@
 
       document.getElementById("emailSection").style.display = "block";
     }
+function sendEmail() {
+  const email = document.getElementById("userEmail").value.trim();
+  const resultText = document.getElementById("result").innerText;
 
-    function sendEmail() {
+  if (!email) {
+    alert("Please enter your email 💚");
+    return;
+  }
+
+  if (!resultText) {
+    alert("Please generate your calm plan first 💚");
+    return;
+  }
+
+  emailjs.send("service_hfr86fp", "template_80hmaqd", {
+    to_name: "Friend",
+    plan: resultText,
+    mantra: "I am safe right now.",
+    user_email: email
+  })
+  .then(function() {
+    alert("Your calm plan has been sent 💚");
+  })
+  .catch(function(error) {
+    console.log("EmailJS error:", error);
+    alert("Still not sending — tell Chat and we’ll fix it 💚");
+  });
+}
       const email = document.getElementById("userEmail").value.trim();
       const resultText = document.getElementById("result").innerText;
 
