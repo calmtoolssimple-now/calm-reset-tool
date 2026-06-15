@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://calmtoolssimple-now.github.io/calm-reset-tool/sitemap.xml
