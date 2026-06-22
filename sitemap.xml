@@ -2,19 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://calmtoolssimple-now.github.io/calm-reset-tool/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://calmtoolssimple-now.github.io/calm-reset-tool/wisdom.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calmtoolssimple-now.github.io/calm-reset-tool/body-remembers.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calmtoolssimple-now.github.io/calm-reset-tool/river-never-hurries.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calmtoolssimple-now.github.io/calm-reset-tool/what-trees-know-about-patience.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calmtoolssimple-now.github.io/calm-reset-tool/a-letter-to-the-tired-woman.html</loc>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
